@@ -140,7 +140,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-size: clamp(0.82rem, 1.4vw, 0.95rem);
   font-weight: 700;
   letter-spacing: 0.03em;
-  color: var(--clr-accent);
+  color: #ffffff;
 }
 
 .hero__profile {
