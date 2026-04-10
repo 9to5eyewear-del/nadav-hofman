@@ -716,36 +716,143 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 /* ──────────────────────────────────────────────────────────
-   Responsive
+   Responsive — Tablet (≤768px)
 ────────────────────────────────────────────────────────── */
-@media (max-width: 700px) {
-  .hero { padding: 2rem 1.25rem; }
-  .hero__profile { font-size: 0.9rem; }
-  .hero__avatar-wrap { width: 84px; height: 84px; }
+@media (max-width: 768px) {
+  .modal--cv {
+    width: 96vw;
+    height: 92dvh;
+  }
 
+  .cv-panel__inner--grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+/* ──────────────────────────────────────────────────────────
+   Responsive — Mobile (≤600px)
+────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+
+  /* Hero */
+  .hero {
+    padding: 2.5rem 1.25rem 2rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero__inner { gap: 1.75rem; }
+  .hero__identity { gap: 0.875rem; }
+
+  .hero__avatar-wrap { width: 88px; height: 88px; }
+
+  .hero__subtitle {
+    font-size: 0.8rem;
+    line-height: 1.9;
+    /* allow wrapping at the | separators */
+    word-spacing: -0.1em;
+  }
+
+  /* Buttons — full-width stack */
   .hero__actions {
     flex-direction: column;
     align-items: stretch;
     width: 100%;
-    max-width: 300px;
+    max-width: 320px;
   }
-  .btn { justify-content: center; padding: 0.9rem 1.25rem; font-size: 0.95rem; }
+
+  .btn {
+    justify-content: center;
+    padding: 0.95rem 1.25rem;
+    font-size: 1rem;
+    min-height: 52px; /* comfortable touch target */
+  }
+
+  /* CV modal — nearly full screen, slides up */
+  .modal-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .modal {
+    animation: modalInMobile 0.35s var(--ease-out) both;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+
+  .modal-overlay.is-closing .modal {
+    animation: modalOutMobile 0.25s ease both;
+  }
 
   .modal--cv {
-    width: 99vw;
-    height: 95dvh;
-    border-radius: var(--radius-md);
+    width: 100vw;
+    height: 93dvh;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   }
 
-  .cv-panel__inner { padding: 1.25rem; }
-  .cv-panel__inner--grid { grid-template-columns: 1fr; }
+  .modal--contact {
+    width: 100vw;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
 
-  .modal--contact { width: 96vw; }
-  .contact-hero { padding: 2rem 1.5rem 1.75rem; }
-  .contact-hero__heading { font-size: 1.75rem; }
+  /* CV topbar */
+  .cv-topbar { padding: 0.625rem 1rem; }
+  .cv-topbar__btn { padding: 0.35rem 0.65rem; font-size: 0.76rem; }
+
+  /* CV tabs — larger touch targets */
+  .cv-tabs { padding: 0 0.75rem; }
+  .cv-tab {
+    padding: 0.9rem 0.75rem;
+    font-size: 0.8rem;
+    min-height: 48px;
+  }
+
+  /* CV panels */
+  .cv-panel__inner { padding: 1.25rem 1rem; gap: 0.875rem; }
+  .cv-panel__inner--grid { grid-template-columns: 1fr; gap: 0.75rem; }
+  .cv-panel__lead { font-size: 0.95rem; line-height: 1.85; }
+
+  /* CV cards */
+  .cv-card { padding: 1rem 1.125rem; }
+  .cv-card__head { flex-wrap: wrap; gap: 0.5rem 0.75rem; margin-bottom: 0.75rem; }
+  .cv-card__role { font-size: 1rem; }
+  .cv-card__list li { font-size: 0.875rem; }
+
+  /* Contact modal */
+  .contact-hero { padding: 2rem 1.25rem 1.75rem; border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+  .contact-hero__heading { font-size: 1.9rem; }
+  .contact-cards { padding: 1rem; }
+  .contact-footer { padding: 0 1rem 1.25rem; }
+
+  /* Contact card — bigger touch target */
+  .contact-card { padding: 1rem; min-height: 72px; }
 }
 
-@media (max-width: 420px) {
-  .cv-topbar__actions { gap: 0.25rem; }
-  .cv-topbar__btn { padding: 0.3rem 0.55rem; font-size: 0.72rem; }
+/* ──────────────────────────────────────────────────────────
+   Responsive — Small phones (≤390px)
+────────────────────────────────────────────────────────── */
+@media (max-width: 390px) {
+  .hero__avatar-wrap { width: 76px; height: 76px; }
+
+  .hero__subtitle {
+    font-size: 0.75rem;
+  }
+
+  .cv-tab {
+    padding: 0.85rem 0.6rem;
+    font-size: 0.75rem;
+  }
+
+  .cv-topbar__btn { padding: 0.3rem 0.5rem; font-size: 0.72rem; }
+}
+
+/* ──────────────────────────────────────────────────────────
+   Mobile modal animations (slide up/down)
+────────────────────────────────────────────────────────── */
+@keyframes modalInMobile {
+  from { opacity: 0; transform: translateY(100%); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes modalOutMobile {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(60px); }
 }
