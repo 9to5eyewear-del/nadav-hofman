@@ -111,12 +111,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* Avatar */
 .hero__avatar-wrap {
-  width: 96px;
-  height: 96px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid rgba(255,255,255,0.12);
-  box-shadow: 0 0 0 2px var(--clr-accent), 0 8px 28px rgba(0,0,0,0.4);
+  box-shadow: 0 0 0 2px var(--clr-accent), 0 10px 36px rgba(0,0,0,0.5);
   flex-shrink: 0;
   animation: avatarIn 0.6s var(--ease-out) 0.1s both;
 }
@@ -154,7 +154,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .hero__divider {
   width: 36px;
   height: 2px;
-  background: var(--clr-accent);
+  background: rgba(255,255,255,0.5);
   border-radius: 2px;
   animation: scaleIn 0.5s var(--ease-out) 0.35s both;
 }
@@ -187,15 +187,16 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .btn:active { transform: translateY(0); }
 
 .btn--primary {
-  background: var(--clr-text);
-  color: var(--clr-surface);
-  border: 1.5px solid var(--clr-text);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.88);
+  border: 1.5px solid rgba(255,255,255,0.15);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 .btn--primary:hover {
-  background: var(--clr-accent);
   border-color: var(--clr-accent);
-  box-shadow: 0 6px 20px rgba(14, 159, 142, 0.28);
+  color: var(--clr-accent);
+  background: rgba(14, 159, 142, 0.1);
+  box-shadow: 0 4px 16px rgba(14, 159, 142, 0.2);
 }
 
 .btn--outline {
@@ -768,7 +769,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .hero__inner { gap: 1.75rem; }
   .hero__identity { gap: 0.875rem; }
 
-  .hero__avatar-wrap { width: 88px; height: 88px; }
+  .hero__avatar-wrap { width: 100px; height: 100px; }
 
   .hero__subtitle {
     font-size: 0.8rem;
@@ -855,7 +856,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
    Responsive — Small phones (≤390px)
 ────────────────────────────────────────────────────────── */
 @media (max-width: 390px) {
-  .hero__avatar-wrap { width: 76px; height: 76px; }
+  .hero__avatar-wrap { width: 88px; height: 88px; }
 
   .hero__subtitle {
     font-size: 0.75rem;
